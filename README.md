@@ -1,247 +1,311 @@
-# InterviewAI 🧠 — AI-Powered Mock Interview Platform
+# 🚀 InterviewAI Pro – AI-Powered Mock Interview Platform
 
-> Ace your next interview with AI-powered mock interviews, real-time feedback, emotion analysis, and comprehensive performance reports.
+<div align="center">
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=for-the-badge&logo=node.js)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql)
 
-![InterviewAI Platform](https://via.placeholder.com/800x400/8b5cf6/ffffff?text=InterviewAI+Platform)
+### 🎯 AI-powered interview preparation platform with real-time feedback, coding rounds, resume analysis, and performance tracking.
 
----
-
-## ✨ Features
-
-- 🤖 **AI-Powered Questions** — Gemini 2.5 & GPT-4o generate tailored interview questions
-- 🎤 **Voice Answers** — Speech-to-text transcription via OpenAI Whisper
-- 📹 **Emotion Analysis** — Real-time confidence, eye contact, and attention tracking
-- 💻 **Live Coding Round** — Monaco Editor with multi-language support & Judge0 execution
-- 📄 **Resume-Based Questions** — Upload PDF resume for personalized questions
-- 📊 **Detailed Reports** — Comprehensive feedback with scores, radar charts, and improvement roadmap
-- 🎨 **Modern UI** — Sleek design with dark mode, animations, and responsive layouts
-- 🔐 **Secure Auth** — Clerk authentication with user management
-- 📈 **Analytics Dashboard** — Track progress, scores, and interview history
+</div>
 
 ---
 
-### Prerequisites
+# 📖 Overview
 
-- Node.js 18+ and npm
-- PostgreSQL database (Neon recommended)
-- API Keys: Clerk, Google Gemini, OpenAI
+InterviewAI Pro is a modern AI-powered interview preparation platform that helps students and professionals prepare for technical interviews.
+
+The platform simulates real interview experiences by generating AI-driven questions, evaluating answers, conducting coding rounds, analyzing communication skills, and providing detailed performance reports.
+
 ---
 
-## 🔧 Environment Variables
+# ✨ Features
 
-Create a `.env.local` file with the following:
+## 🤖 AI Interviewer
 
-```env
-# Database
-DATABASE_URL=postgresql://user:password@host/database
+- AI-generated interview questions
+- Personalized interview experience
+- Technical & HR interview modes
+- Dynamic follow-up questions
 
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
-CLERK_SECRET_KEY=sk_test_...
-CLERK_WEBHOOK_SECRET=whsec_...
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+---
 
-# AI APIs
-GOOGLE_GENERATIVE_AI_API_KEY=...           # Google Gemini
-OPENAI_API_KEY=sk-...                      # OpenAI GPT-4o & Whisper
+## 🎤 Voice Interview
 
-# Code Execution (Optional)
-RAPIDAPI_KEY=...                           # Judge0 on RapidAPI
+- Speech-to-text transcription
+- Real-time answer recording
+- AI evaluation
+- Communication assessment
 
-# App URLs
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
+---
+
+## 😊 Emotion & Confidence Analysis
+
+- Face detection
+- Eye-contact monitoring
+- Confidence tracking
+- Attention analysis
+- Interview behavior insights
+
+---
+
+## 💻 Coding Interview
+
+- Monaco Code Editor
+- Multiple programming languages
+- Real-time code execution
+- Coding challenge evaluation
+
+---
+
+## 📄 Resume Analyzer
+
+- Upload PDF Resume
+- Resume-based interview questions
+- Skill extraction
+- Resume feedback
+- AI improvement suggestions
+
+---
+
+## 📊 Analytics Dashboard
+
+- Interview history
+- Performance trends
+- Skill-wise analysis
+- AI feedback
+- Improvement roadmap
+
+---
+
+## 🔐 Authentication
+
+- Secure Login
+- Clerk Authentication
+- Protected Dashboard
+- User Profile Management
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- ShadCN UI
+
+## Backend
+
+- Node.js
+- Express.js
+- Next.js API Routes
+- Socket.IO
+
+## Database
+
+- PostgreSQL
+- Drizzle ORM
+
+## AI Services
+
+- Google Gemini
+- OpenAI GPT-4o
+- OpenAI Whisper
+
+## Authentication
+
+- Clerk
+
+## Deployment
+
+- Vercel
+- Docker
+
+---
+
+# 📁 Project Structure
+
 ```
-
----
-
-## 📦 Tech Stack
-
-| Category | Technologies |
-|----------|-------------|
-| **Frontend** | Next.js 15, React 19, TypeScript, Tailwind CSS |
-| **UI Library** | ShadCN UI, Radix UI, Lucide Icons |
-| **Authentication** | Clerk |
-| **Database** | PostgreSQL (Neon), Drizzle ORM |
-| **AI/ML** | Google Gemini 2.5, OpenAI GPT-4o, Whisper |
-| **Real-time** | Socket.IO, WebRTC |
-| **Code Execution** | Judge0 API, Monaco Editor |
-| **Deployment** | Docker, Vercel |
-
----
-
-## 📁 Project Structure
-
-```
-├── app/                      # Next.js App Router
-│   ├── (auth)/              # Auth pages (sign-in, sign-up)
-│   ├── (dashboard)/         # Protected dashboard routes
-│   │   ├── dashboard/       # Main dashboard
-│   │   ├── interviews/      # Interview management
-│   │   │   ├── new/         # Create interview
-│   │   │   └── [id]/
-│   │   │       ├── room/    # Live interview room
-│   │   │       └── report/  # Interview report
-│   │   ├── analytics/       # Analytics & insights
-│   │   ├── resume/          # Resume management
-│   │   ├── coding/          # Coding practice
-│   │   └── settings/        # User settings
-│   ├── api/                 # API routes
-│   │   ├── interviews/      # Interview CRUD
-│   │   ├── answers/         # Answer submission
-│   │   ├── speech/          # Speech-to-text
-│   │   ├── emotion/         # Emotion analysis
-│   │   ├── code/            # Code execution
-│   │   └── webhooks/        # Clerk webhooks
-│   └── page.tsx            # Landing page
-├── components/              # React components
-│   ├── ui/                 # ShadCN UI components
-│   ├── interviews/         # Interview components
-│   ├── dashboard/          # Dashboard components
-│   ├── emotion/            # Emotion analysis
-│   └── coding/             # Code editor
-├── lib/                    # Utilities & helpers
-│   ├── ai/                 # AI integration
-│   ├── db/                 # Database schema
-│   └── utils.ts            # Helper functions
-├── server/                 # Express + Socket.IO server
-└── types/                  # TypeScript types
-```
-
----
-
-## 🗄️ Database Schema
-
-**Tables:**
-- `users` — User profiles synced from Clerk
-- `interviews` — Interview sessions
-- `questions` — Generated questions per interview
-- `answers` — User answers with AI scores
-- `emotion_records` — Emotion analysis data
-- `resumes` — Uploaded resume metadata
-- `interview_reports` — Final reports with feedback
-
-**Commands:**
-```bash
-npm run db:push      # Push schema to database
-npm run db:generate  # Generate migrations
-npm run db:studio    # Open Drizzle Studio
-```
-
----
-
-## 🐳 Docker Deployment
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or build separately
-docker build -t interviewai .
-docker run -p 3000:3000 --env-file .env.local interviewai
-```
-
----
-
-## 🔗 Clerk Webhook Setup
-
-1. Go to [Clerk Dashboard](https://dashboard.clerk.com/) → **Webhooks**
-2. Add endpoint: `https://your-domain.com/api/webhooks/clerk`
-3. Subscribe to events: `user.created`, `user.updated`, `user.deleted`
-4. Copy signing secret → `CLERK_WEBHOOK_SECRET` in `.env.local`
-
----
-
-## 📝 Important Files to Push
-
-**✅ Include:**
-```
-├── app/                    # All application code
-├── components/             # React components
-├── lib/                    # Utilities
-├── server/                 # Backend server
-├── types/                  # TypeScript types
-├── public/                 # Public assets (except uploads/)
-├── .env.example            # Template for env vars
-├── .gitignore              
-├── docker-compose.yml
-├── Dockerfile
-├── drizzle.config.ts
-├── next.config.ts
+InterviewAI-Pro
+│
+├── app/
+├── components/
+├── lib/
+├── public/
+├── server/
+├── types/
 ├── package.json
-├── tailwind.config.ts
-├── tsconfig.json
+├── Dockerfile
 └── README.md
 ```
 
-**❌ Exclude (automatically via .gitignore):**
-```
-node_modules/               # Dependencies (heavy!)
-.next/                      # Build output
-.env.local                  # Secrets!
-.env                        # Secrets!
-public/uploads/             # User uploads
-lib/db/migrations/          # Generated files
-*.log                       # Log files
-.DS_Store                   # macOS files
-```
-
 ---
 
-## 🛠️ Scripts
+# ⚙️ Installation
+
+## Clone Repository
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run type-check   # TypeScript type checking
-npm run db:push      # Push database schema
-npm run db:studio    # Open Drizzle Studio
+git clone https://github.com/999akshat/InterviewAi.git
 ```
 
 ---
 
-## 🤝 Contributing
+## Install Dependencies
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+```bash
+npm install
+```
 
 ---
 
-## 📄 License
+## Configure Environment Variables
+
+Create
+
+```
+.env.local
+```
+
+Add
+
+```env
+DATABASE_URL=
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+GOOGLE_GENERATIVE_AI_API_KEY=
+OPENAI_API_KEY=
+
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+---
+
+## Run Project
+
+```bash
+npm run dev
+```
+
+Open
+
+```
+http://localhost:3000
+```
+
+---
+
+
+- Landing Page
+- Dashboard
+- Interview Room
+- Coding Round
+- Report Page
+- Analytics Dashboard
+
+---
+
+# 🚀 Future Enhancements
+
+- AI Voice Interview
+- Company-specific Interview Modes
+- Resume ATS Score
+- AI Career Roadmap
+- Mock Group Discussion
+- HR Interview Simulator
+- System Design Interview
+- AI Interview History
+- PDF Report Generator
+- Admin Dashboard
+
+---
+
+# 📚 Learning Outcomes
+
+- Full Stack Development
+- REST APIs
+- Authentication
+- AI Integration
+- Database Design
+- Real-time Communication
+- Modern UI Development
+- Deployment
+- Docker
+- Cloud Services
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+Feel free to fork the repository and create pull requests.
+
+---
+
+# 👨‍💻 Developer
+
+## Akshat Upadhyay
+
+B.Tech CSE (Cyber Security)
+
+Graphic Era Hill University
+
+### Skills
+
+- React.js
+- Next.js
+- Node.js
+- Express.js
+- PostgreSQL
+- MySQL
+- MongoDB
+- JavaScript
+- TypeScript
+- Python
+
+GitHub
+
+```
+https://github.com/999akshat
+```
+
+LinkedIn
+
+```
+https://www.linkedin.com/in/akshat-upadhyay-37ba3b41a/
+```
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐.
+
+It motivates me to build more open-source projects.
+
+---
+
+# 📜 License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👨‍💻 Author
-
-**Aryan Sandilya**
-
-- GitHub: [@aryan45sandilya](https://github.com/aryan45sandilya)
-- Project: [AI Mock Interview Platform](https://github.com/aryan45sandilya/AI-MOCK-INTERVIEW-PLATFORM)
-
----
-
-## 🙏 Acknowledgments
-
-- Next.js Team for the amazing framework
-- Clerk for authentication
-- Google & OpenAI for AI APIs
-- Vercel for deployment platform
-- All open-source contributors
-
----
-
 <div align="center">
-  <strong>Built with ❤️ by Aryan Sandilya using Next.js 15 & AI</strong>
-  <br />
-  <sub>Star ⭐ this repo if you found it helpful!</sub>
+
+### 🚀 Built and customized by Akshat Upadhyay
+
+**This project is based on an open-source AI interview platform and has been significantly customized and extended for learning and portfolio purposes.**
+
+Made with ❤️ using Next.js, React, AI & TypeScript
+
 </div>
